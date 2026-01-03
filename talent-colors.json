@@ -1,0 +1,350 @@
+[
+  {
+    "name": "大神ミオ",
+    "official_color1": "#DC1935",
+    "official_color2": "#FF314A",
+    "holodule_color": "#C71E3E"
+  },
+  {
+    "name": "音乃瀬奏",
+    "official_color1": "#F6C663",
+    "official_color2": "#FFE7B5",
+    "holodule_color": "#FFE7B5"
+  },
+  {
+    "name": "儒烏風亭らでん",
+    "official_color1": "#1C5E4F",
+    "official_color2": "#3C7C71",
+    "holodule_color": "#3C7C71"
+  },
+  {
+    "name": "轟はじめ",
+    "official_color1": "#9293FE",
+    "official_color2": "#B6B9FF",
+    "holodule_color": "#B6B9FF"
+  },
+  {
+    "name": "響咲リオナ",
+    "official_color1": "#C92655",
+    "official_color2": "#FE3480",
+    "holodule_color": "#FE3480"
+  },
+  {
+    "name": "虎金妃笑虎",
+    "official_color1": "#F25E11",
+    "official_color2": "#F58017",
+    "holodule_color": "#F58017"
+  },
+  {
+    "name": "輪堂千速",
+    "official_color1": "#2C8C8B",
+    "official_color2": "#37BABA",
+    "holodule_color": "#37BABA"
+  },
+  {
+    "name": "綺々羅々ヴィヴィ",
+    "official_color1": "#E6499B",
+    "official_color2": "#FF90CC",
+    "holodule_color": "#FF90CC"
+  },
+  {
+    "name": "兎田ぺこら",
+    "official_color1": "#65BAEA",
+    "official_color2": "#88D2FF",
+    "holodule_color": "#7EC2FE"
+  },
+  {
+    "name": "不知火フレア",
+    "official_color1": "#DC3813",
+    "official_color2": "#FF5028",
+    "holodule_color": "#FE3D1C"
+  },
+  {
+    "name": "宝鐘マリン",
+    "official_color1": "#A72413",
+    "official_color2": "#CA3C28",
+    "holodule_color": "#BA2C2B"
+  },
+  {
+    "name": "Kiara",
+    "official_color1": "#DC3907",
+    "official_color2": "#FF511C",
+    "holodule_color": "#FF511C"
+  },
+  {
+    "name": "Ninomae Ina'nis",
+    "official_color1": "#3F3E69",
+    "official_color2": "#62567E",
+    "holodule_color": "#62567E"
+  },
+  {
+    "name": "Hakos Baelz",
+    "official_color1": "#FE3A2D",
+    "official_color2": "#FF938D",
+    "holodule_color": "#D72517"
+  },
+  {
+    "name": "Nerissa Ravencroft",
+    "official_color1": "#1E27AC",
+    "official_color2": "#2233FB",
+    "holodule_color": "#2233FB"
+  },
+  {
+    "name": "Elizabeth Rose Bloodflame",
+    "official_color1": "#97303A",
+    "official_color2": "#C7383B",
+    "holodule_color": "#C7383B"
+  },
+  {
+    "name": "姫森ルーナ",
+    "official_color1": "#DB6CAD",
+    "official_color2": "#FE84C2",
+    "holodule_color": "#F7ABD5"
+  },
+  {
+    "name": "鷹嶺ルイ",
+    "official_color1": "#28040D",
+    "official_color2": "#831550",
+    "holodule_color": "#B84A67"
+  },
+  {
+    "name": "博衣こより",
+    "official_color1": "#FE68AD",
+    "official_color2": "#FFACD3",
+    "holodule_color": "#F09CC0"
+  },
+  {
+    "name": "風真いろは",
+    "official_color1": "#44BFB7",
+    "official_color2": "#93DCD8",
+    "holodule_color": "#73B5B1"
+  },
+  {
+    "name": "ロボ子さん",
+    "official_color1": "#804E7F",
+    "official_color2": "#A36694",
+    "holodule_color": "#D192FE"
+  },
+  {
+    "name": "さくらみこ",
+    "official_color1": "#FE4B74",
+    "official_color2": "#FF9CB4",
+    "holodule_color": "#FF8FDF"
+  },
+  {
+    "name": "AZKi",
+    "official_color1": "#D11C76",
+    "official_color2": "#F4348B",
+    "holodule_color": "#FC3488"
+  },
+  {
+    "name": "夏色まつり",
+    "official_color1": "#FF5606",
+    "official_color2": "#FFA227",
+    "holodule_color": "#FDAB45"
+  },
+  {
+    "name": "天音かなた",
+    "official_color1": "#76C0EA",
+    "official_color2": "#99D8FF",
+    "holodule_color": "#509BEA"
+  },
+  {
+    "name": "角巻わため",
+    "official_color1": "#DBDA89",
+    "official_color2": "#FFF29E",
+    "holodule_color": "#F9AFB2"
+  },
+  {
+    "name": "尾丸ポルカ",
+    "official_color1": "#AB0808",
+    "official_color2": "#CF2830",
+    "holodule_color": "#B92731"
+  },
+  {
+    "name": "Shiori",
+    "official_color1": "#8C80AE",
+    "official_color2": "#B8A0CD",
+    "holodule_color": "#B8A0CD"
+  },
+  {
+    "name": "Koseki Bijou",
+    "official_color1": "#4B43DF",
+    "official_color2": "#6E5BF4",
+    "holodule_color": "#6E5BF4"
+  },
+  {
+    "name": "百鬼あやめ",
+    "official_color1": "#CA223A",
+    "official_color2": "#ED3A4F",
+    "holodule_color": "#DE3E28"
+  },
+  {
+    "name": "癒月ちょこ",
+    "official_color1": "#DC5686",
+    "official_color2": "#FF6E9B",
+    "holodule_color": "#FE739E"
+  },
+  {
+    "name": "大空スバル",
+    "official_color1": "#BDE717",
+    "official_color2": "#E0FF2C",
+    "holodule_color": "#E5FB67"
+  },
+  {
+    "name": "星街すいせい",
+    "official_color1": "#2DCDE4",
+    "official_color2": "#50E5F9",
+    "holodule_color": "#49E0F4"
+  },
+  {
+    "name": "白上フブキ",
+    "official_color1": "#53C7EA",
+    "official_color2": "#76DFFF",
+    "holodule_color": "#43BFEF"
+  },
+  {
+    "name": "猫又おかゆ",
+    "official_color1": "#BF65E8",
+    "official_color2": "#E27DFD",
+    "holodule_color": "#B190FC"
+  },
+  {
+    "name": "獅白ぼたん",
+    "official_color1": "#5FCFA6",
+    "official_color2": "#A3E5CF",
+    "holodule_color": "#A2D5C4"
+  },
+  {
+    "name": "桃鈴ねね",
+    "official_color1": "#FE7A0F",
+    "official_color2": "#FFB65D",
+    "holodule_color": "#EEAC5E"
+  },
+  {
+    "name": "アキ・ローゼンタール",
+    "official_color1": "#DC0485",
+    "official_color2": "#FF1C9A",
+    "holodule_color": "#4E7FFC"
+  },
+  {
+    "name": "雪花ラミィ",
+    "official_color1": "#48B5E3",
+    "official_color2": "#6BCDF8",
+    "holodule_color": "#6ABADF"
+  },
+  {
+    "name": "Ollie",
+    "official_color1": "#B7030E",
+    "official_color2": "#D60E54",
+    "holodule_color": "#D60E54"
+  },
+  {
+    "name": "Anya Melfissa",
+    "official_color1": "#E89C0F",
+    "official_color2": "#F2C95C",
+    "holodule_color": "#F2C95C"
+  },
+  {
+    "name": "Fuwawa Abyssgard",
+    "official_color1": "#2D87F7",
+    "official_color2": "#67B2FF",
+    "holodule_color": "#F9F1E4"
+  },
+  {
+    "name": "Mococo Abyssgard",
+    "official_color1": "#FF82C9",
+    "official_color2": "#F7A6CA",
+    "holodule_color": "#F9F1E4"
+  },
+  {
+    "name": "Mori Calliope",
+    "official_color1": "#A1020B",
+    "official_color2": "#C90D40",
+    "holodule_color": "#C90D40"
+  },
+  {
+    "name": "IRyS",
+    "official_color1": "#991150",
+    "official_color2": "#E10E5B",
+    "holodule_color": "#8C1236"
+  },
+  {
+    "name": "Ouro Kronii",
+    "official_color1": "#1D1797",
+    "official_color2": "#6879C7",
+    "holodule_color": "#20318B"
+  },
+  {
+    "name": "ときのそら",
+    "official_color1": "#0146EA",
+    "official_color2": "#245EFF",
+    "holodule_color": "#266AFF"
+  },
+  {
+    "name": "赤井はあと",
+    "official_color1": "#D9062A",
+    "official_color2": "#FC123F",
+    "holodule_color": "#FE4872"
+  },
+  {
+    "name": "Ayunda Risu",
+    "official_color1": "#EF8381",
+    "official_color2": "#F6BBBB",
+    "holodule_color": "#FF4133"
+  },
+  {
+    "name": "Kobo",
+    "official_color1": "#161C4F",
+    "official_color2": "#393464",
+    "holodule_color": "#393464"
+  },
+  {
+    "name": "火威青",
+    "official_color1": "#16264B",
+    "official_color2": "#1D3467",
+    "holodule_color": "#1D3467"
+  },
+  {
+    "name": "Vestia Zeta",
+    "official_color1": "#97A1AE",
+    "official_color2": "#BAB9C3",
+    "holodule_color": "#BAB9C3"
+  },
+  {
+    "name": "Kaela Kovalskia",
+    "official_color1": "#DC2528",
+    "official_color2": "#FF3D3D",
+    "holodule_color": "#FF3D3D"
+  },
+  {
+    "name": "常闇トワ",
+    "official_color1": "#a7a2ea",
+    "official_color2": "#cabaff",
+    "holodule_color": "#BA92CA"
+  },
+  {
+    "name": "Iofi",
+    "official_color1": "#7bdf0e",
+    "official_color2": "#b3ee55",
+    "holodule_color": "#ff45d5"
+  },
+  {
+    "name": "水宮枢",
+    "official_color1": "#64cce4",
+    "official_color2": "#71e5ff",
+    "holodule_color": "#71E5FF"
+  },
+  {
+    "name": "Raora",
+    "official_color1": "#e75786",
+    "official_color2": "#f087a9",
+    "holodule_color": "#f087a9"
+  },
+  {
+    "name": "一条莉々華",
+    "official_color1": "#ee558b",
+    "official_color2": "#f47da9",
+    "holodule_color": "#f47da9"
+  }
+]
