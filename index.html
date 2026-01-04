@@ -69,47 +69,21 @@
       color: var(--text-primary);
       min-height: 100vh;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
+      max-width: 100vw;
     }
 
-    .bg-stripes {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-      opacity: var(--stripe-opacity);
-      filter: blur(var(--stripe-blur));
+    html {
+      overflow-x: hidden;
+      max-width: 100vw;
     }
-
-    .stripe {
-      position: absolute;
-      width: 300%;
-      height: 4px;
-      left: -50%;
-      transform: rotate(-12deg);
-    }
-
-    [data-theme="dark"] .stripe {
-      height: 8px;
-      box-shadow: 0 0 20px currentColor;
-    }
-
-    .stripe:nth-child(1) { top: 8%; background: linear-gradient(90deg, transparent 20%, var(--cyalume-blue) 50%, transparent 80%); color: var(--cyalume-blue); }
-    .stripe:nth-child(2) { top: 18%; background: linear-gradient(90deg, transparent 30%, var(--cyalume-pink) 55%, transparent 75%); color: var(--cyalume-pink); }
-    .stripe:nth-child(3) { top: 32%; background: linear-gradient(90deg, transparent 15%, var(--cyalume-yellow) 45%, transparent 85%); color: var(--cyalume-yellow); }
-    .stripe:nth-child(4) { top: 48%; background: linear-gradient(90deg, transparent 25%, var(--cyalume-green) 50%, transparent 70%); color: var(--cyalume-green); }
-    .stripe:nth-child(5) { top: 62%; background: linear-gradient(90deg, transparent 35%, var(--cyalume-purple) 60%, transparent 80%); color: var(--cyalume-purple); }
-    .stripe:nth-child(6) { top: 78%; background: linear-gradient(90deg, transparent 20%, var(--cyalume-orange) 48%, transparent 75%); color: var(--cyalume-orange); }
-    .stripe:nth-child(7) { top: 90%; background: linear-gradient(90deg, transparent 28%, var(--cyalume-aqua) 52%, transparent 78%); color: var(--cyalume-aqua); }
 
     header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
+      width: 100%;
       z-index: 100;
       background: var(--bg-secondary);
       border-bottom: 1px solid var(--border);
@@ -178,6 +152,32 @@
       background: var(--bg-card-hover);
       color: var(--text-primary);
       transform: scale(1.02);
+    }
+
+    .refresh-toggle-btn {
+      padding: 6px 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .refresh-toggle-btn:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+      transform: scale(1.02);
+    }
+
+    .refresh-toggle-btn.is-off {
+      background: rgba(255, 59, 92, 0.1);
+      border-color: rgba(255, 59, 92, 0.3);
+      color: var(--live-color);
     }
 
     .date-tabs {
@@ -295,11 +295,25 @@
       max-width: 1600px;
       margin: 0 auto;
       padding: 70px 16px 40px;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 60px 8px 24px;
+      }
     }
 
     .date-section {
       margin-bottom: 24px;
       scroll-margin-top: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .date-section {
+        margin-bottom: 12px;
+        scroll-margin-top: 60px;
+      }
     }
 
     .date-header {
@@ -310,6 +324,26 @@
       padding: 12px 16px;
       background: linear-gradient(90deg, var(--bg-secondary), transparent);
       border-radius: var(--radius-md);
+    }
+
+    @media (max-width: 768px) {
+      .date-header {
+        gap: 8px;
+        margin-bottom: 8px;
+        padding: 8px 10px;
+      }
+
+      .date-header h2 {
+        font-size: 13px;
+      }
+
+      .date-header .stream-count {
+        font-size: 10px;
+      }
+
+      .date-header .label {
+        font-size: 9px;
+      }
     }
 
     .date-header h2 {
@@ -357,6 +391,7 @@
     @media (max-width: 768px) {
       .stream-grid, .now-live-grid {
         grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
       }
     }
 
@@ -519,6 +554,144 @@
       }
     }
 
+    /* スマホヘッダー対応 */
+    @media (max-width: 768px) {
+      .header-content {
+        padding: 8px 12px;
+        gap: 8px;
+      }
+
+      .logo {
+        gap: 6px;
+      }
+
+      .logo-icon {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+      }
+
+      .logo-text {
+        font-size: 14px;
+      }
+
+      .color-mode-btn {
+        display: none;
+      }
+
+      .refresh-toggle-btn {
+        display: none;
+      }
+
+      .date-tabs {
+        gap: 2px;
+        justify-content: flex-start;
+      }
+
+      .date-tab {
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+
+      .date-tab .weekday {
+        display: none;
+      }
+
+      /* ヘッダーコントロールはオプションメニューに */
+      .header-controls {
+        gap: 4px;
+      }
+
+      .live-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+        gap: 4px;
+      }
+
+      .live-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      .icon-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .debug-btn {
+        display: none;
+      }
+
+      .theme-btn {
+        display: none;
+      }
+
+      /* オプションメニュー表示 */
+      .options-menu-btn {
+        display: flex;
+      }
+    }
+
+    /* オプションメニュー（スマホ用） */
+    .options-menu-btn {
+      display: none;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: var(--bg-card);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+    }
+
+    .options-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 12px;
+      margin-top: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      z-index: 200;
+      min-width: 160px;
+      padding: 8px 0;
+    }
+
+    .options-dropdown.show {
+      display: block;
+    }
+
+    .options-dropdown button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 16px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .options-dropdown button:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .options-dropdown .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 8px 0;
+    }
+
     .card-info {
       position: relative;
       padding: 2px 8px 2px 2px;
@@ -611,64 +784,25 @@
     .stream-card.is-live {
       grid-column: span 5;
       flex-direction: row;
-      border: none;
+      border: 3px solid var(--live-border-color, var(--live-color));
       position: relative;
       background: var(--bg-card);
       z-index: 1;
-      overflow: visible;
+      animation: borderPulse 2s ease-in-out infinite;
     }
 
-    /* 動くグラデーションボーダー（全体を一周） */
-    .stream-card.is-live::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 200%;
-      height: 200%;
-      background: conic-gradient(
-        from 0deg,
-        var(--live-border-color, var(--live-color)) 0deg,
-        transparent 60deg,
-        transparent 180deg,
-        var(--live-border-color, var(--live-color)) 240deg,
-        transparent 300deg,
-        transparent 360deg
-      );
-      animation: rotateBorder 6s linear infinite;
-      z-index: -2;
-    }
-
-    @keyframes rotateBorder {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    @keyframes borderPulse {
+      0%, 100% { border-color: var(--live-border-color, var(--live-color)); box-shadow: 0 0 15px var(--live-border-color, var(--live-color)); }
+      50% { border-color: transparent; box-shadow: 0 0 5px var(--live-border-color, var(--live-color)); }
     }
 
     /* 各カードのアニメーションをランダムにずらす */
-    .stream-card.is-live:nth-child(6n+1)::before { animation-delay: 0s; }
-    .stream-card.is-live:nth-child(6n+2)::before { animation-delay: -1s; }
-    .stream-card.is-live:nth-child(6n+3)::before { animation-delay: -2.5s; }
-    .stream-card.is-live:nth-child(6n+4)::before { animation-delay: -4s; }
-    .stream-card.is-live:nth-child(6n+5)::before { animation-delay: -0.8s; }
-    .stream-card.is-live:nth-child(6n+6)::before { animation-delay: -3.2s; }
-
-    /* 内側の背景を被せる（ボーダーの幅を作る） */
-    .stream-card.is-live::after {
-      content: '';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      right: 3px;
-      bottom: 3px;
-      border-radius: calc(var(--radius-md) - 1px);
-      background: var(--bg-card);
-      z-index: -1;
-    }
-
-    /* はみ出した部分をクリップするラッパー */
-    .stream-card.is-live {
-      clip-path: inset(-3px round calc(var(--radius-md) + 3px));
-    }
+    .stream-card.is-live:nth-child(6n+1) { animation-delay: 0s; }
+    .stream-card.is-live:nth-child(6n+2) { animation-delay: -0.3s; }
+    .stream-card.is-live:nth-child(6n+3) { animation-delay: -0.7s; }
+    .stream-card.is-live:nth-child(6n+4) { animation-delay: -1.1s; }
+    .stream-card.is-live:nth-child(6n+5) { animation-delay: -0.5s; }
+    .stream-card.is-live:nth-child(6n+6) { animation-delay: -1.5s; }
 
     [data-theme="dark"] .stream-card.is-live {
       box-shadow: 0 0 30px var(--live-glow);
@@ -679,12 +813,13 @@
       width: 45%;
       height: 100%;
       flex-shrink: 0;
-      /* 角丸は親のoverflow:hiddenで自動クリップ */
+      margin: 0;
     }
 
     .stream-card.is-live .card-thumbnail img {
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .card-time.is-live-time {
@@ -725,6 +860,7 @@
       gap: 6px;
       flex: 1;
       min-width: 0;
+      margin: 0;
     }
 
     /* タレント行（上詰め） */
@@ -828,6 +964,26 @@
         aspect-ratio: 16 / 9;
         /* 角丸は親のoverflow:hiddenで自動クリップ */
       }
+      /* LIVE時間表示をコンパクトに */
+      .stream-card.is-live .card-time.is-live-time {
+        padding: 2px 6px;
+        gap: 4px;
+      }
+      .stream-card.is-live .live-time-info {
+        flex-direction: row;
+        gap: 6px;
+        align-items: center;
+      }
+      .stream-card.is-live .live-start-time {
+        font-size: 10px;
+      }
+      .stream-card.is-live .live-elapsed {
+        font-size: 9px;
+      }
+      .stream-card.is-live .live-dot-indicator {
+        width: 6px;
+        height: 6px;
+      }
       /* 詳細欄をcard-infoスタイルに */
       .live-detail {
         padding: 4px 8px 4px 4px;
@@ -854,10 +1010,35 @@
       }
     }
 
+    /* スマホで更にコンパクト */
+    @media (max-width: 768px) {
+      .live-detail {
+        padding: 2px 6px 2px 2px;
+        gap: 4px;
+      }
+      .live-talent-icon {
+        width: 36px;
+        height: 36px;
+      }
+      .live-talent-name {
+        font-size: 12px;
+      }
+      .live-talent-row {
+        gap: 6px;
+      }
+    }
+
     /* ===== NOW Section ===== */
     .now-section {
       margin: 24px 0;
       scroll-margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .now-section {
+        margin: 12px 0;
+        scroll-margin-top: 50px;
+      }
     }
 
     .now-marker {
@@ -865,6 +1046,13 @@
       align-items: center;
       gap: 12px;
       margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .now-marker {
+        gap: 8px;
+        margin-bottom: 10px;
+      }
     }
 
     .now-marker::before,
@@ -885,6 +1073,23 @@
       color: white;
       font-size: 14px;
       font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      .now-marker-badge {
+        padding: 6px 14px;
+        font-size: 11px;
+        gap: 5px;
+      }
+
+      .now-marker-badge .dot {
+        width: 7px;
+        height: 7px;
+      }
+
+      .now-marker-badge .current-time {
+        font-size: 10px;
+      }
     }
 
     [data-theme="dark"] .now-marker-badge {
@@ -1077,22 +1282,13 @@
   </style>
 </head>
 <body data-theme="light">
-  <div class="bg-stripes">
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-    <div class="stripe"></div>
-  </div>
-
   <header>
     <div class="header-content">
       <div class="logo">
         <div class="logo-icon">H</div>
         <span class="logo-text">ホロジュール+</span>
         <button class="color-mode-btn" id="color-mode-btn" onclick="toggleColorMode()">🎨 公式1</button>
+        <button class="refresh-toggle-btn" id="refresh-toggle-btn" onclick="toggleAutoRefresh()">🔄 ON</button>
       </div>
       <div class="date-tabs" id="date-tabs"></div>
       <div class="header-controls">
@@ -1102,6 +1298,14 @@
         </button>
         <button class="icon-btn debug-btn" onclick="debugRandomLive()" title="Debug: Random Live">🎲</button>
         <button class="icon-btn theme-btn" onclick="toggleTheme()">🌙</button>
+        <button class="options-menu-btn" onclick="toggleOptionsMenu()">⋮</button>
+      </div>
+      <div class="options-dropdown" id="options-dropdown">
+        <button onclick="toggleAutoRefresh(); closeOptionsMenu()">🔄 <span id="refresh-status">自動更新: ON</span></button>
+        <button onclick="toggleColorMode(); closeOptionsMenu()">🎨 カラー切替</button>
+        <button onclick="toggleTheme(); closeOptionsMenu()">🌙 テーマ切替</button>
+        <div class="divider"></div>
+        <button onclick="debugRandomLive(); closeOptionsMenu()">🎲 デバッグ</button>
       </div>
     </div>
   </header>
@@ -1119,6 +1323,8 @@
     let shownToastIds = new Set();
     let theme = localStorage.getItem('holodule-theme') || 'light';
     let isFirstLoad = true;
+    let autoRefresh = true;
+    let refreshInterval = null;
 
     // talent-colors.json を読み込んでマップ作成（全カラー保持）
     async function loadTalentColors() {
@@ -1169,6 +1375,49 @@
 
     function updateThemeBtn() {
       document.querySelector('.theme-btn').textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    // オプションメニュー制御
+    function toggleOptionsMenu() {
+      const dropdown = document.getElementById('options-dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    function closeOptionsMenu() {
+      const dropdown = document.getElementById('options-dropdown');
+      dropdown.classList.remove('show');
+    }
+
+    // メニュー外クリックで閉じる
+    document.addEventListener('click', (e) => {
+      const dropdown = document.getElementById('options-dropdown');
+      const menuBtn = document.querySelector('.options-menu-btn');
+      if (dropdown && !dropdown.contains(e.target) && !menuBtn.contains(e.target)) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    // 自動更新トグル
+    function toggleAutoRefresh() {
+      autoRefresh = !autoRefresh;
+      const btn = document.getElementById('refresh-toggle-btn');
+      const menuStatus = document.getElementById('refresh-status');
+      
+      if (autoRefresh) {
+        btn.textContent = '🔄 ON';
+        btn.classList.remove('is-off');
+        if (menuStatus) menuStatus.textContent = '自動更新: ON';
+        refreshInterval = setInterval(fetchData, 30000);
+      } else {
+        btn.textContent = '🔄 OFF';
+        btn.classList.add('is-off');
+        if (menuStatus) menuStatus.textContent = '自動更新: OFF';
+        if (refreshInterval) {
+          clearInterval(refreshInterval);
+          refreshInterval = null;
+        }
+      }
+      console.log(`🔄 自動更新: ${autoRefresh ? 'ON' : 'OFF'}`);
     }
 
     function scrollToNow() {
@@ -1787,7 +2036,7 @@
     (async () => {
       await loadTalentColors();
       await fetchData();
-      setInterval(fetchData, 30000);
+      refreshInterval = setInterval(fetchData, 30000);
     })();
   </script>
 </body>
