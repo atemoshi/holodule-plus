@@ -1150,6 +1150,23 @@
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    // 日付のみを比較するヘルパー関数
+    function getDateOnly(d) {
+      return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
+    }
+
+    function isSameDay(d1, d2) {
+      return getDateOnly(d1) === getDateOnly(d2);
+    }
+
+    function isBeforeDay(d1, d2) {
+      return getDateOnly(d1) < getDateOnly(d2);
+    }
+
+    function isAfterDay(d1, d2) {
+      return getDateOnly(d1) > getDateOnly(d2);
+    }
+
     function parseDate(str) {
       return new Date(str.replace(/\//g, '-'));
     }
@@ -1263,7 +1280,7 @@
     function renderDateTabs() {
       const tabs = scheduleData.dateGroupList.map(g => {
         const { short, day, key } = formatDateLabel(g.datetime);
-        const today = parseDate(g.datetime).toDateString() === new Date().toDateString();
+        const today = isSameDay(parseDate(g.datetime), new Date());
         return `<button class="date-tab ${today ? 'active' : ''}" data-key="${key}" onclick="scrollToDate('${key}')">${short}<span class="weekday">${day}</span></button>`;
       }).join('');
       document.getElementById('date-tabs').innerHTML = tabs;
@@ -1583,7 +1600,7 @@
       // 過去の日付
       scheduleData.dateGroupList.forEach(group => {
         const groupDate = parseDate(group.datetime);
-        if (groupDate.toDateString() < now.toDateString()) {
+        if (isBeforeDay(groupDate, now)) {
           const { full, key } = formatDateLabel(group.datetime);
           const videos = group.videoList.filter(v => !isEffectiveLive(v));
           if (videos.length > 0) {
@@ -1597,7 +1614,7 @@
 
       // 今日の過去
       const todayGroup = scheduleData.dateGroupList.find(g => 
-        parseDate(g.datetime).toDateString() === now.toDateString()
+        isSameDay(parseDate(g.datetime), now)
       );
 
       if (todayGroup) {
@@ -1645,7 +1662,7 @@
       // 明日以降
       scheduleData.dateGroupList.forEach(group => {
         const groupDate = parseDate(group.datetime);
-        if (groupDate.toDateString() > now.toDateString()) {
+        if (isAfterDay(groupDate, now)) {
           const { full, key } = formatDateLabel(group.datetime);
           const videos = group.videoList.filter(v => !isEffectiveLive(v));
           if (videos.length > 0) {
