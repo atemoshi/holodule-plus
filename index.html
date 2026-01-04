@@ -374,6 +374,7 @@
       border: 2px solid var(--border);
       height: 100%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: relative;
     }
 
     .stream-card.card-new {
@@ -412,20 +413,21 @@
 
     .card-time {
       position: absolute;
-      top: 6px;
-      left: 6px;
-      padding: 4px 8px;
-      background: rgba(0, 0, 0, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 4px;
+      top: 0;
+      left: 0;
+      padding: 3px 8px;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 0 0 8px 0;
       font-family: 'Outfit', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: white;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       transition: all 0.2s ease;
+      z-index: 5;
     }
 
     .card-time .time-until {
@@ -440,52 +442,81 @@
 
     /* 60分以内: 常に表示＆強調 */
     .card-time.is-urgent {
-      padding: 6px 10px;
-      font-size: 13px;
-      background: rgba(255, 59, 92, 0.9);
-      border-color: rgba(255, 255, 255, 0.6);
+      padding: 4px 10px;
+      font-size: 11px;
+      background: rgba(255, 59, 92, 0.95);
       flex-direction: column;
       align-items: flex-start;
-      gap: 2px;
+      gap: 1px;
     }
 
     .card-time.is-urgent .time-main {
-      font-size: 12px;
+      font-size: 10px;
       opacity: 0.9;
     }
 
     .card-time.is-urgent .time-until.urgent {
       display: block;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
       opacity: 1;
     }
 
     .card-time.is-urgent .time-until.urgent strong {
-      font-size: 18px;
+      font-size: 14px;
       color: #fff;
     }
 
     /* アーカイブ表示 */
     .card-time.is-archive {
-      background: rgba(100, 100, 120, 0.85);
-      border-color: rgba(255, 255, 255, 0.3);
+      background: rgba(80, 80, 100, 0.65);
+      padding: 3px 8px;
     }
 
     .card-time.is-archive .archive-label {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .card-time.is-archive .archive-time {
       display: none;
-      font-size: 10px;
+      font-size: 9px;
       opacity: 0.9;
     }
 
     .stream-card:hover .card-time.is-archive .archive-time {
       display: inline;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+      .card-time {
+        padding: 2px 6px;
+        font-size: 9px;
+        gap: 3px;
+      }
+
+      .card-time.is-urgent {
+        padding: 3px 6px;
+        gap: 0px;
+      }
+
+      .card-time.is-urgent .time-main {
+        font-size: 9px;
+      }
+
+      .card-time.is-urgent .time-until.urgent {
+        font-size: 10px;
+      }
+
+      .card-time.is-urgent .time-until.urgent strong {
+        font-size: 12px;
+      }
+
+      .card-time.is-archive .archive-label {
+        font-size: 9px;
+      }
     }
 
     .card-info {
@@ -1470,9 +1501,9 @@
       
       return `
         <a class="stream-card" href="${v.url}" target="_blank" data-video-id="${getVideoId(v)}" style="${borderStyle} ${shadowStyle}">
+          <span class="card-time ${urgentClass}">${timeContent}</span>
           <div class="card-thumbnail">
             <img src="${v.thumbnail}" alt="" loading="lazy">
-            <span class="card-time ${urgentClass}">${timeContent}</span>
             <div class="card-title-overlay">
               <div class="title">${v.title}</div>
             </div>
