@@ -18,16 +18,16 @@
       --cyalume-red: #ff5252;
       --cyalume-aqua: #84ffff;
       
-      --bg-primary: #f5f6f8;
-      --bg-secondary: #ffffff;
-      --bg-card: #ffffff;
-      --bg-card-hover: #f0f4f8;
-      --text-primary: #1a1a2e;
-      --text-secondary: #4a4a6a;
+      --bg-primary: #e2e4ea;
+      --bg-secondary: #eceef2;
+      --bg-card: #f2f3f6;
+      --bg-card-hover: #e6e8ed;
+      --text-primary: #2a2a3e;
+      --text-secondary: #54546e;
       --text-muted: #8888a0;
       --border: rgba(0, 0, 0, 0.06);
-      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
       
       --live-glow: rgba(255, 59, 92, 0.4);
       --live-color: #ff3b5c;
@@ -38,12 +38,12 @@
     }
 
     [data-theme="dark"] {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #111118;
-      --bg-card: #18181f;
-      --bg-card-hover: #1e1e2a;
-      --text-primary: #ffffff;
-      --text-secondary: #b0b0c8;
+      --bg-primary: #12121a;
+      --bg-secondary: #181820;
+      --bg-card: #1e1e28;
+      --bg-card-hover: #282832;
+      --text-primary: #d8d8e4;
+      --text-secondary: #a0a0b8;
       --text-muted: #6a6a80;
       --border: rgba(255, 255, 255, 0.06);
       --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
@@ -150,10 +150,10 @@
 
     .refresh-toggle-btn {
       padding: 6px 12px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: rgba(105, 240, 174, 0.15);
+      border: 1px solid rgba(105, 240, 174, 0.3);
       border-radius: 16px;
-      color: var(--text-secondary);
+      color: var(--cyalume-green);
       font-family: inherit;
       font-size: 11px;
       font-weight: 600;
@@ -163,15 +163,28 @@
     }
 
     .refresh-toggle-btn:hover {
-      background: var(--bg-card-hover);
-      color: var(--text-primary);
+      background: rgba(105, 240, 174, 0.25);
       transform: scale(1.02);
     }
 
     .refresh-toggle-btn.is-off {
-      background: rgba(255, 59, 92, 0.1);
-      border-color: rgba(255, 59, 92, 0.3);
-      color: var(--live-color);
+      background: var(--bg-card);
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+
+    .refresh-toggle-btn.is-off:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .refresh-toggle-btn.is-fetching {
+      animation: refreshGlow 0.8s ease-in-out;
+    }
+
+    @keyframes refreshGlow {
+      0% { box-shadow: 0 0 0 rgba(105, 240, 174, 0); }
+      50% { box-shadow: 0 0 12px rgba(105, 240, 174, 0.6); }
+      100% { box-shadow: 0 0 0 rgba(105, 240, 174, 0); }
     }
 
     .date-tabs {
@@ -642,6 +655,16 @@
       border: 1px solid var(--border);
     }
 
+    @media (max-width: 768px) {
+      .options-menu-btn {
+        display: flex;
+      }
+    }
+
+    [data-theme="dark"] .options-menu-btn {
+      color: white;
+    }
+
     .options-dropdown {
       display: none;
       position: absolute;
@@ -695,6 +718,44 @@
       flex-shrink: 0;
     }
 
+    .card-info .talent-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    .card-info .talent-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .card-info {
+        padding: 2px 6px 2px 2px;
+        gap: 6px;
+      }
+
+      .card-info .talent-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .card-info .talent-name {
+        font-size: 12px;
+      }
+    }
+
     /* コラボアイコン（右下重ね、タレント名の後ろに配置） */
     .collab-avatars {
       position: absolute;
@@ -725,28 +786,6 @@
       width: 30px;
       height: 30px;
       margin-right: -12px;
-    }
-
-    .card-info .talent-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-      box-sizing: border-box;
-    }
-
-    .card-info .talent-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      position: relative;
-      z-index: 1;
     }
 
     .card-title-overlay {
@@ -1152,11 +1191,22 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
+      left: 20px;
       z-index: 1000;
       display: flex;
       flex-direction: column;
       gap: 12px;
       max-width: 380px;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .toast-container {
+        bottom: 12px;
+        right: 8px;
+        left: 8px;
+        max-width: none;
+      }
     }
 
     .toast {
@@ -1282,7 +1332,7 @@
         <div class="logo-icon">H</div>
         <span class="logo-text">ホロジュール+</span>
         <button class="color-mode-btn" id="color-mode-btn" onclick="toggleColorMode()">🎨 公式1</button>
-        <button class="refresh-toggle-btn" id="refresh-toggle-btn" onclick="toggleAutoRefresh()">🔄 ON</button>
+        <button class="refresh-toggle-btn" id="refresh-toggle-btn" onclick="toggleAutoRefresh()">自動更新中</button>
       </div>
       <div class="date-tabs" id="date-tabs"></div>
       <div class="header-controls">
@@ -1295,7 +1345,7 @@
         <button class="options-menu-btn" onclick="toggleOptionsMenu()">⋮</button>
       </div>
       <div class="options-dropdown" id="options-dropdown">
-        <button onclick="toggleAutoRefresh(); closeOptionsMenu()">🔄 <span id="refresh-status">自動更新: ON</span></button>
+        <button onclick="toggleAutoRefresh(); closeOptionsMenu()"><span id="refresh-status">自動更新中</span></button>
         <button onclick="toggleColorMode(); closeOptionsMenu()">🎨 カラー切替</button>
         <button onclick="toggleTheme(); closeOptionsMenu()">🌙 テーマ切替</button>
         <div class="divider"></div>
@@ -1398,20 +1448,29 @@
       const menuStatus = document.getElementById('refresh-status');
       
       if (autoRefresh) {
-        btn.textContent = '🔄 ON';
+        btn.textContent = '自動更新中';
         btn.classList.remove('is-off');
-        if (menuStatus) menuStatus.textContent = '自動更新: ON';
+        if (menuStatus) menuStatus.textContent = '自動更新中';
         refreshInterval = setInterval(fetchData, 30000);
       } else {
-        btn.textContent = '🔄 OFF';
+        btn.textContent = '自動更新停止';
         btn.classList.add('is-off');
-        if (menuStatus) menuStatus.textContent = '自動更新: OFF';
+        if (menuStatus) menuStatus.textContent = '自動更新停止';
         if (refreshInterval) {
           clearInterval(refreshInterval);
           refreshInterval = null;
         }
       }
       console.log(`🔄 自動更新: ${autoRefresh ? 'ON' : 'OFF'}`);
+    }
+
+    // 通信時のアニメーション
+    function showFetchingAnimation() {
+      const btn = document.getElementById('refresh-toggle-btn');
+      if (btn && autoRefresh) {
+        btn.classList.add('is-fetching');
+        setTimeout(() => btn.classList.remove('is-fetching'), 800);
+      }
     }
 
     function scrollToNow() {
@@ -1664,8 +1723,8 @@
       return { r: r * 255, g: g * 255, b: b * 255 };
     }
     
-    // 明度が暗すぎる場合に持ち上げる
-    function adjustColorBrightness(hex, minLightness) {
+    // 明度が暗すぎる/明るすぎる場合に調整
+    function adjustColorBrightness(hex, minLightness, maxLightness = 70) {
       const rgb = hexToRgb(hex);
       if (!rgb) return hex;
       
@@ -1674,6 +1733,13 @@
       // 明度が最小値未満なら持ち上げる
       if (hsl.l < minLightness) {
         hsl.l = minLightness;
+        const newRgb = hslToRgb(hsl.h, hsl.s, hsl.l);
+        return rgbToHex(newRgb.r, newRgb.g, newRgb.b);
+      }
+      
+      // 明度が最大値超過なら下げる
+      if (hsl.l > maxLightness) {
+        hsl.l = maxLightness;
         const newRgb = hslToRgb(hsl.h, hsl.s, hsl.l);
         return rgbToHex(newRgb.r, newRgb.g, newRgb.b);
       }
@@ -2005,6 +2071,7 @@
 
     async function fetchData() {
       try {
+        showFetchingAnimation();
         if (!scheduleData) renderSkeleton();
         
         const res = await fetch('https://schedule.hololive.tv/api/list/7');
