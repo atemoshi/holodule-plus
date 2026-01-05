@@ -1756,8 +1756,8 @@
       }
       
       // メインカラーのみで左上から右下までグラデーション
-      // 0%〜30%: 100%原色 → 30%〜80%: 50% → 80%〜100%: 10%
-      return `linear-gradient(135deg, ${mainColor} 0%, ${mainColor} 30%, ${mainColor}80 55%, ${mainColor}50 80%, ${mainColor}10 100%)`;
+      // 0%: 10% → 20%: 50% → 45%: 80% → 70%～100%: 100%原色
+      return `linear-gradient(135deg, ${mainColor}10 0%, ${mainColor}50 20%, ${mainColor}80 45%, ${mainColor} 70%, ${mainColor} 100%)`;
     }
 
     function renderCard(v) {
