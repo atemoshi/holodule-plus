@@ -428,7 +428,8 @@
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    .stream-card:hover {
+    .stream-card:hover,
+    .stream-card.is-top-visible {
       transform: translateY(-4px) scale(1.01);
       box-shadow: var(--shadow-hover);
       filter: brightness(1.02);
@@ -449,7 +450,8 @@
       transition: transform 0.3s;
     }
 
-    .stream-card:hover .card-thumbnail img {
+    .stream-card:hover .card-thumbnail img,
+    .stream-card.is-top-visible .card-thumbnail img {
       transform: scale(1.05);
     }
 
@@ -478,7 +480,8 @@
       opacity: 0.9;
     }
 
-    .stream-card:hover .card-time .time-until {
+    .stream-card:hover .card-time .time-until,
+    .stream-card.is-top-visible .card-time .time-until {
       display: inline;
     }
 
@@ -527,7 +530,8 @@
       opacity: 0.9;
     }
 
-    .stream-card:hover .card-time.is-archive .archive-time {
+    .stream-card:hover .card-time.is-archive .archive-time,
+    .stream-card.is-top-visible .card-time.is-archive .archive-time {
       display: inline;
     }
 
@@ -799,7 +803,8 @@
       transition: opacity 0.25s;
     }
 
-    .stream-card:hover .card-title-overlay {
+    .stream-card:hover .card-title-overlay,
+    .stream-card.is-top-visible .card-title-overlay {
       opacity: 1;
     }
 
@@ -2046,6 +2051,7 @@
       }
 
       setupScrollObserver();
+      setupMobileHoverObserver();
     }
 
     function findVideoById(id) {
@@ -2068,6 +2074,40 @@
       }, { rootMargin: '-80px 0px -70% 0px' });
       sections.forEach(s => observer.observe(s));
     }
+
+    // スマホ用: 画面上部30%にいるカードをホバー状態に
+    let mobileHoverObserver = null;
+    function setupMobileHoverObserver() {
+      // 既存のオブザーバーをクリア
+      if (mobileHoverObserver) {
+        mobileHoverObserver.disconnect();
+      }
+      
+      // スマホのみ
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      if (!isMobile) {
+        document.querySelectorAll('.stream-card.is-top-visible')
+          .forEach(card => card.classList.remove('is-top-visible'));
+        return;
+      }
+      
+      // 上部30%の範囲を監視 (rootMargin: '上 0px 下 0px')
+      // -0% 0px -70% 0px = 上0%～上30%の範囲
+      mobileHoverObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          entry.target.classList.toggle('is-top-visible', entry.isIntersecting);
+        });
+      }, { rootMargin: '-60px 0px -70% 0px' }); // ヘッダー分を考慮して-60px
+      
+      document.querySelectorAll('.stream-card').forEach(card => {
+        mobileHoverObserver.observe(card);
+      });
+    }
+
+    // リサイズ時に再設定
+    window.addEventListener('resize', () => {
+      setupMobileHoverObserver();
+    });
 
     async function fetchData() {
       try {
