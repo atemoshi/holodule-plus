@@ -860,6 +860,11 @@
       display: block;
     }
 
+    /* 配信中カード: PC横長表示ではタイトルオーバーレイ非表示（.live-title-boxがあるから） */
+    .stream-card.is-live .card-title-overlay {
+      display: none;
+    }
+
     .card-time.is-live-time {
       background: var(--live-color);
       flex-direction: row;
@@ -1042,6 +1047,10 @@
       .live-title-box,
       .live-collab-row {
         display: none;
+      }
+      /* スマホではタイトルオーバーレイを有効に */
+      .stream-card.is-live .card-title-overlay {
+        display: block;
       }
       .live-talent-row {
         gap: 8px;
@@ -1893,6 +1902,9 @@
                 ${elapsed ? `<span class="live-elapsed">${elapsed}</span>` : ''}
               </span>
             </span>
+            <div class="card-title-overlay">
+              <div class="title">${v.title}</div>
+            </div>
           </div>
           <div class="live-detail" style="background: ${gradientStyle}">
             <div class="live-talent-row">
